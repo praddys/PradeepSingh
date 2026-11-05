@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="halloween">
 <head>
 <meta charset="UTF-8">
+<script>try{if(localStorage.getItem("ps-halloween")==="off")document.documentElement.classList.remove("halloween")}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pradeep Singh — Business Analyst</title>
 <meta name="description" content="Pradeep Singh, Business Analyst with 10+ years in customer experience, operations and account management.">
@@ -278,6 +279,93 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
   .reveal{opacity:1;transform:none}
   .mask>span{transform:none}
 }
+
+/* ===================== HALLOWEEN THEME (toggle with the pumpkin button) ===================== */
+html.halloween{
+  --bg:#0C0812;--bg-2:#140E1D;--card:#1B1426;--ink:#F8EEDF;--ink-2:#C9B8A6;--ink-3:#8E7D8F;--line:rgba(255,170,90,.14);
+  --brand:#FF7A1A;--brand-2:#FFB347;--pink:#9B4DFF;--amber:#FF4B1F;--black:#07050A;
+  --shadow:0 2px 8px rgba(0,0,0,.6);--shadow-lg:0 30px 60px -12px rgba(0,0,0,.8),0 0 0 1px rgba(255,122,26,.08);
+}
+html.halloween .mesh{background:#140A22}
+html.halloween .mesh::after{background:linear-gradient(180deg,rgba(5,2,12,.35),transparent 55%)}
+html.halloween .btn.solid{background:#FF7A1A;color:#140A00}
+html.halloween .btn.solid:hover{box-shadow:0 12px 34px -8px rgba(255,122,26,.75)}
+html.halloween .btn.light,html.halloween .contact .btn.light{background:#F8EEDF;color:#1A0F05}
+html.halloween .status i::after{background:#FF7A1A}
+html.halloween .island .dot{background:#FF7A1A;animation-name:pulseO}
+@keyframes pulseO{0%{box-shadow:0 0 0 0 rgba(255,122,26,.7)}70%,100%{box-shadow:0 0 0 8px rgba(255,122,26,0)}}
+html.halloween .person .frame{background:rgba(255,140,40,.16);border-color:rgba(255,170,90,.55);box-shadow:0 0 60px -10px rgba(255,122,26,.55),var(--shadow-lg)}
+html.halloween .tag{background:rgba(28,18,38,.88);color:#F8EEDF;border-color:rgba(255,170,90,.35)}
+html.halloween .tag small{color:#C9B8A6}
+html.halloween .tag.t1 .ic{background:linear-gradient(135deg,#FF7A1A,#FF4B1F)!important}
+html.halloween .note .logo{filter:saturate(.85)}
+html.halloween .note li::before{background:linear-gradient(135deg,#FF7A1A,#FFB347)}
+html.halloween .now{background:#FF7A1A;color:#140A00}
+html.halloween .switch:checked{background:#FF7A1A}
+html.halloween .legend span:last-child i{background:linear-gradient(90deg,#FF7A1A,#FFB347)!important}
+html.halloween .track span::after{content:"🎃";-webkit-text-stroke:0;font-size:.55em}
+html.halloween .contact .glow{background:radial-gradient(circle,rgba(255,122,26,.38),transparent 60%)}
+html.halloween .msg.me,html.halloween .typing{background:#FF7A1A;color:#140A00}
+html.halloween .msg.me a{color:#140A00}
+html.halloween .h2,html.halloween .hero h1{text-shadow:0 0 40px rgba(255,122,26,.18)}
+
+/* decorations hidden unless the theme is on */
+.spooky{display:none;pointer-events:none}
+html.halloween .spooky{display:block}
+
+/* moon */
+.moon{position:absolute;z-index:1;width:clamp(100px,9vw,140px);aspect-ratio:1;border-radius:50%;right:3%;top:64px;
+  background:radial-gradient(circle at 35% 35%,#FFF6D8,#FFD98A 55%,#F2A64B);
+  box-shadow:0 0 60px 20px rgba(255,200,110,.35),0 0 160px 60px rgba(255,140,40,.18);animation:moonGlow 6s ease-in-out infinite}
+.moon::before,.moon::after{content:"";position:absolute;border-radius:50%;background:rgba(200,130,50,.28)}
+.moon::before{width:22%;height:22%;left:22%;top:52%}
+.moon::after{width:14%;height:14%;left:58%;top:28%}
+@keyframes moonGlow{50%{box-shadow:0 0 80px 26px rgba(255,200,110,.45),0 0 200px 80px rgba(255,140,40,.22)}}
+
+/* bats */
+.bats{position:absolute;inset:0;z-index:2;overflow:hidden}
+.bat{position:absolute;left:-12%;width:var(--s,60px);aspect-ratio:2.5;animation:fly var(--t,16s) linear var(--d,0s) infinite}
+.bat i{display:block;width:100%;height:100%;background:#0A0510;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M50 13c2.5-5 6-5.5 7.5-1.5C63 5 76 3 90 7c-7 2.5-10 7-10 11-5-3-11-2-14 3-3-2.5-7-1.5-9 2.5-1.2-3-3.6-4.6-7-4.6s-5.8 1.6-7 4.6c-2-4-6-5-9-2.5-3-5-9-6-14-3 0-4-3-8.5-10-11 14-4 27-2 32.5 4.5C44 7.5 47.5 8 50 13z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M50 13c2.5-5 6-5.5 7.5-1.5C63 5 76 3 90 7c-7 2.5-10 7-10 11-5-3-11-2-14 3-3-2.5-7-1.5-9 2.5-1.2-3-3.6-4.6-7-4.6s-5.8 1.6-7 4.6c-2-4-6-5-9-2.5-3-5-9-6-14-3 0-4-3-8.5-10-11 14-4 27-2 32.5 4.5C44 7.5 47.5 8 50 13z'/%3E%3C/svg%3E") center/contain no-repeat;
+  animation:flap .28s ease-in-out infinite alternate;transform-origin:center 40%}
+@keyframes flap{to{transform:scaleY(.45) scaleX(.92)}}
+@keyframes fly{
+  0%{transform:translate(0,var(--y0,20vh)) rotate(-6deg)}
+  25%{transform:translate(32vw,calc(var(--y0,20vh) - 6vh)) rotate(4deg)}
+  50%{transform:translate(64vw,calc(var(--y0,20vh) + 5vh)) rotate(-4deg)}
+  75%{transform:translate(96vw,calc(var(--y0,20vh) - 4vh)) rotate(5deg)}
+  100%{transform:translate(126vw,var(--y0,20vh)) rotate(-6deg)}}
+
+/* spider web (top-left) and dangling spider (top-right) */
+.web{position:absolute;left:0;top:0;width:clamp(140px,16vw,230px);z-index:2;opacity:.5}
+.spider{position:absolute;right:clamp(14px,2.5vw,40px);top:0;z-index:4;width:2px;height:150px;background:linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,.55));
+  transform-origin:top center;animation:dangle 5s ease-in-out infinite}
+.spider::after{content:"🕷️";position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);font-size:30px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))}
+@keyframes dangle{0%,100%{height:120px;transform:rotate(3deg)}50%{height:180px;transform:rotate(-3deg)}}
+
+/* pumpkin badge in hero */
+.boo{position:absolute;z-index:3;left:-6%;top:-5%;font-size:clamp(44px,4.6vw,66px);filter:drop-shadow(0 10px 22px rgba(255,110,20,.55));animation:pop .9s var(--spring) 1.8s both,wobble 3.4s ease-in-out 2.8s infinite}
+@keyframes wobble{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg) translateY(-6px)}}
+
+/* ghosts in contact */
+.ghosts{position:absolute;inset:0;overflow:hidden}
+.ghost{position:absolute;bottom:-90px;font-size:var(--s,42px);opacity:.0;animation:rise2 var(--t,14s) ease-in var(--d,0s) infinite}
+@keyframes rise2{0%{transform:translate(0,0);opacity:0}15%{opacity:.55}50%{transform:translate(30px,-50vh)}85%{opacity:.4}100%{transform:translate(-20px,-110vh);opacity:0}}
+
+/* pumpkin toggle in the island */
+.spook-btn{width:34px;height:34px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;font-size:18px;line-height:1;margin-left:2px;
+  background:rgba(255,255,255,.1);transition:transform .4s var(--spring),background .3s}
+.spook-btn:hover{transform:scale(1.1) rotate(-8deg)}
+html.halloween .spook-btn{background:rgba(255,122,26,.28);box-shadow:0 0 0 1.5px #FF7A1A}
+html:not(.halloween) .spook-btn{filter:grayscale(1);opacity:.75}
+
+@media (max-width:860px){
+  .moon{right:7%;top:250px;width:78px}
+  .web{width:120px}
+  .spider{display:none}
+  .boo{left:-4%;top:-4%}
+}
 </style>
 </head>
 <body>
@@ -292,12 +380,26 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
     <a href="#contact" data-sec="contact">Contact</a>
   </nav>
   <span class="dot" aria-hidden="true"></span>
+  <button class="spook-btn" id="spookBtn" type="button" aria-label="Halloween theme" aria-pressed="true">🎃</button>
 </header>
 
 <main>
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="mesh" aria-hidden="true"><canvas id="mesh"></canvas></div>
+  <div class="spooky" aria-hidden="true">
+    <div class="moon"></div>
+    <div class="bats"><span class="bat" style="--s:64px;--t:17s;--d:0s;--y0:14vh"><i></i></span><span class="bat" style="--s:42px;--t:22s;--d:-6s;--y0:30vh"><i></i></span><span class="bat" style="--s:52px;--t:19s;--d:-11s;--y0:8vh"><i></i></span><span class="bat" style="--s:34px;--t:25s;--d:-3s;--y0:42vh"><i></i></span><span class="bat" style="--s:46px;--t:21s;--d:-15s;--y0:22vh"><i></i></span></div>
+    <svg class="web spooky" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.1" aria-hidden="true">
+      <path d="M0 0L200 60M0 0L170 140M0 0L110 200M0 0L40 200M0 0L200 10"/>
+      <path d="M38 11Q36 22 33 33Q25 38 14 42"/>
+      <path d="M76 23Q72 44 66 66Q49 76 28 84M66 66Q52 82 50 0"/>
+      <path d="M114 34Q108 66 99 99Q74 114 42 126Q30 140 22 160"/>
+      <path d="M152 46Q144 88 132 132Q99 152 56 168Q40 184 30 200"/>
+      <path d="M190 57Q178 110 165 165"/>
+    </svg>
+    <div class="spider"></div>
+  </div>
   <div class="wrap hero-inner">
     <div class="hero-copy" id="heroCopy">
       <span class="status"><i></i>Open to Business Analyst &amp; CX Manager roles</span>
@@ -311,6 +413,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
 
     <div class="person" id="person">
       <div class="frame"></div>
+      <div class="boo spooky" aria-hidden="true">🎃</div>
       <div class="clip"><img data-photo alt="Pradeep Singh in a navy suit, smiling" width="760" height="1139" fetchpriority="high"></div>
       <div class="tag t1">
         <div class="ic" style="background:linear-gradient(135deg,#635BFF,#00B4FF)">S</div>
@@ -572,6 +675,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
 <!-- ============ CONTACT ============ -->
 <section class="sec contact" id="contact">
   <div class="glow" aria-hidden="true"></div>
+  <div class="ghosts spooky" aria-hidden="true"><span class="ghost" style="left:8%;--s:40px;--t:15s;--d:0s">👻</span><span class="ghost" style="left:28%;--s:30px;--t:19s;--d:-7s">👻</span><span class="ghost" style="left:52%;--s:46px;--t:17s;--d:-3s">👻</span><span class="ghost" style="left:74%;--s:34px;--t:21s;--d:-11s">👻</span><span class="ghost" style="left:90%;--s:38px;--t:16s;--d:-5s">👻</span></div>
   <div class="wrap">
     <div class="inner">
       <div class="reveal">
@@ -608,6 +712,7 @@ document.querySelectorAll("img[data-photo]").forEach(function(i){i.src="data:ima
 
   /* ---- Stripe-style animated gradient mesh ---- */
   const cv = document.getElementById('mesh'), ctx = cv.getContext('2d');
+  const SPOOK = [[255,106,0],[107,43,217],[60,10,90],[255,154,31],[150,20,40]];
   const blobs = [
     { c: [99, 91, 255], x: .15, y: .2, r: .7, sx: .13, sy: .17 },
     { c: [0, 180, 255], x: .55, y: .1, r: .6, sx: .11, sy: .09 },
@@ -618,17 +723,26 @@ document.querySelectorAll("img[data-photo]").forEach(function(i){i.src="data:ima
   let W = 0, H = 0, running = true;
   const size = () => { const r = cv.parentElement.getBoundingClientRect(); W = cv.width = Math.max(40, Math.round(r.width / 8)); H = cv.height = Math.max(40, Math.round(r.height / 8)); };
   const draw = t => {
-    ctx.fillStyle = '#6A5CFF'; ctx.fillRect(0, 0, W, H);
+    const spook = document.documentElement.classList.contains('halloween');
+    ctx.fillStyle = spook ? '#140A22' : '#6A5CFF'; ctx.fillRect(0, 0, W, H);
     blobs.forEach((b, i) => {
       const x = (b.x + Math.sin(t * b.sx + i) * .18) * W, y = (b.y + Math.cos(t * b.sy + i * 2) * .2) * H, r = b.r * Math.max(W, H);
       const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-      g.addColorStop(0, `rgba(${b.c},1)`); g.addColorStop(1, `rgba(${b.c},0)`);
+      const c = spook ? SPOOK[i] : b.c; g.addColorStop(0, `rgba(${c},1)`); g.addColorStop(1, `rgba(${c},0)`);
       ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     });
   };
   size(); addEventListener('resize', size);
   const loop = ts => { if (running) draw(ts / 1000 * .35); if (!reduce) requestAnimationFrame(loop); };
   reduce ? draw(2) : requestAnimationFrame(loop);
+  const spookBtn = document.getElementById('spookBtn');
+  const syncSpook = () => spookBtn.setAttribute('aria-pressed', document.documentElement.classList.contains('halloween'));
+  syncSpook();
+  spookBtn.addEventListener('click', () => {
+    const on = document.documentElement.classList.toggle('halloween');
+    try { localStorage.setItem('ps-halloween', on ? 'on' : 'off'); } catch (e) {}
+    syncSpook(); if (reduce) draw(2);
+  });
   new IntersectionObserver(e => running = e[0].isIntersecting).observe(cv);
 
   /* ---- Hero parallax ---- */
